@@ -1,0 +1,114 @@
+{{> menu}} <!-- Include the navigation menu -->
+
+<!-- Main Section -->
+<section class="ui center aligned middle aligned segment">
+
+  <!-- About the App Section -->
+  <h2 class="ui center aligned header">About the App</h2>
+
+  <!-- Author Information Section -->
+  <div class="ui segment">
+    <h3 class="ui dividing header">Author</h3>
+
+    <!-- Author Details in a Table Format -->
+    <table class="ui celled table">
+      <tbody>
+        <tr>
+          <td><i class="user icon"></i></td>
+          <td><strong>Name:</strong></td>
+          <td>{{info.creator.name}}</td>
+        </tr>
+        <tr>
+          <td><i class="envelope icon"></i></td>
+          <td><strong>Email:</strong></td>
+          <td><a href="mailto:{{info.creator.email}}">{{info.creator.email}}</a></td>
+        </tr>
+        <tr>
+          <td><i class="phone icon"></i></td>
+          <td><strong>Phone:</strong></td>
+          <td>{{info.creator.phone}}</td>
+        </tr>
+        <tr>
+          <td><i class="map marker alternate icon"></i></td>
+          <td><strong>Location:</strong></td>
+          <td>{{info.creator.location}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Location Section -->
+  <div class="ui segment">
+    <h3 class="ui dividing header">Location</h3>
+
+    <!-- Google Maps Button -->
+    <p>
+      <strong style="margin-right: 20px">Find us on Google Maps</strong>
+      <a href="https://maps.app.goo.gl/GCV5AT7jnW6ttX3t5" target="_blank" class="ui button">
+        <i class="map marker alternate icon"></i> View on Google Maps
+      </a>
+    </p>
+
+    <!-- Embedded Google Map -->
+    <div class="ui embed">
+      <iframe 
+        width="100%" 
+        height="400" 
+        style="border:0;"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.8526947285613!2d-7.1387044999999985!3d52.2460592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4842c41310dd4131%3A0x4042f0dcf13f7cfe!2sSouth%20East%20Technological%20University%20%7C%20Waterford%20(SETU)!5e0!3m2!1sen!2sie!4v1741538197204!5m2!1sen!2sie">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- App Statistics Section -->
+  <div class="ui segment">
+    <h3 class="ui dividing header">App Statistics</h3>
+
+    <!-- Statistics Grid -->
+    <div class="ui centered aligned grid">
+      
+      <!-- Total Recipes -->
+      <div class="four wide column">
+        <div class="ui raised segment center aligned">
+          <i class="utensils icon circular big teal"></i>
+          <h2>{{info.appStatistics.totalRecipes}}</h2>
+          <p>Recipes</p>
+        </div>
+      </div>
+
+      <!-- Total Users -->
+      <div class="four wide column">
+        <div class="ui raised segment center aligned">
+          <i class="users icon circular big blue"></i>
+          <h2>{{info.appStatistics.totalUsers}}</h2>
+          <p>Users</p>
+        </div>
+      </div>
+
+      <!-- Active Users -->
+      <div class="four wide column">
+        <div class="ui raised segment center aligned">
+          <i class="user check icon circular big green"></i>
+          <h2>{{info.appStatistics.activeUsers}}</h2>
+          <p>Active users</p>
+        </div>
+      </div>
+
+      <!-- App Version -->
+      <div class="four wide column">
+        <div class="ui raised segment center aligned">
+          <i class="code branch icon circular big violet"></i>
+          <h2>{{info.appStatistics.version}}</h2>
+          <p>Version</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+{{> footer}} <!-- Include the footer -->

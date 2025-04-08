@@ -1,0 +1,211 @@
+/* === Reset & Global Styles === */
+/* Ensures consistent box sizing for all elements */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* 🌎 General Page Styles */
+body {
+  font-family: "Benton Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 2em;
+  background-color: #f4f8ff; /* Light Blue Background */
+  color: #002b5b; /* Dark Blue Text */
+}
+
+/* ===  Vegetarian Toggle Styles === */
+.vegetarian-toggle input:checked ~ .box:before,
+.vegetarian-toggle input:checked ~ label:before {
+  background-color: #21ba45 !important; /* Green Indicator */
+}
+
+.vegetarian-toggle input:checked ~ label {
+  color: #21ba45 !important; /* Green Text when checked */
+}
+
+/* ===  UI Segments (Fix Borders & Shadows) === */
+.ui.segment {
+  background-color: #ffffff; /* White Background */
+  border: 1px solid #004080; /* Blue Border */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 64, 128, 0.1);
+}
+
+/* ===  Headers (Titles) === */
+.ui.header {
+  color: #004080 !important; /* Dark Blue Headers */
+  font-weight: bold;
+}
+
+/* ===  UI Navigation Menu === */
+.ui.menu {
+  background-color: #004080 !important; /* Dark Blue Navbar */
+}
+
+/* Ensure Menu Items are Always White */
+.ui.menu .item {
+  color: #ffffff !important; /* White Text */
+  font-weight: bold !important;
+}
+
+/* Ensure ALL Nested Elements Inside `.ui.menu .item` Stay White */
+.ui.menu .item *,
+.ui.menu .item a,
+.ui.menu .item span,
+.ui.menu .item p,
+.ui.menu .item i {
+  color: #ffffff !important; /* White for Nested Elements */
+  background: #004080 !important;
+}
+
+/* Prevent `.ui.header` from Overriding Menu Items */
+.ui.menu .item .ui.header {
+  color: inherit !important;
+}
+
+/* Fix Menu Hover Effects */
+.ui.menu .item:hover,
+.ui.menu .item a:hover {
+  background-color: #0056b3 !important; /* Lighter Blue on Hover */
+  color: #ffffff !important;
+}
+
+/* ===  Dropdown Menu Fixes === */
+/* Ensure Dropdown Menu is Readable */
+.ui.menu .ui.dropdown .menu>.item {
+  color: #ffffff !important; /* White Text */
+}
+
+/* Fix Hover Effect in Dropdown */
+.ui.menu .menu .item:hover {
+  background-color: #f4f8ff !important; /* Light Background */
+  color: #004080 !important; /* Darker Blue */
+}
+
+/* === 🎨 UI Buttons (Fix Colors & Borders) === */
+.ui.button {
+  background-color: #0056b3 !important; /* Strong Blue */
+  color: #ffffff !important;
+  border-radius: 8px;
+}
+
+/* Fix Hover Effect */
+.ui.button:hover {
+  background-color: #003d80 !important; /* Darker Blue */
+}
+
+/* Ensure Icons Inside Buttons Stay White */
+.ui.button>.icon:not(.button) {
+  color: #ffffff !important;
+}
+
+/* === 🎴 UI Cards (Fix Borders & Shadows) === */
+.ui.card {
+  background-color: #ffffff;
+  border: 1px solid #004080;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 64, 128, 0.2);
+}
+
+/* Ensure Card Content is Readable */
+.ui.card .content {
+  color: #002b5b;
+}
+
+/* === 📊 UI Tables (Fix Borders & Headers) === */
+.ui.celled.table {
+  border: 1px solid #004080;
+}
+
+/* Table Header */
+.ui.celled.table th {
+  background-color: #0056b3 !important;
+  color: #ffffff !important;
+}
+
+/* Table Cells */
+.ui.celled.table td {
+  color: #002b5b;
+}
+
+/* === 🔢 Pagination Fixes === */
+.ui.pagination.menu {
+  border-radius: 8px;
+}
+
+/* Pagination Text */
+.ui.pagination.menu .item {
+  color: #ffffff !important;
+  border: 1px solid #0056b3;
+}
+
+/* Active Page */
+.ui.pagination.menu .active.item {
+  background-color: #0056b3 !important;
+  color: white !important;
+}
+
+/* === Form Elements (Fix Borders & Inputs) === */
+.ui.input input,
+.ui.dropdown {
+  border: 1px solid #004080 !important;
+  border-radius: 6px !important;
+}
+
+/* ===  Fix Links Inside UI Elements === */
+/* Ensures Links Inside Buttons, Segments & Headers Stay Readable */
+.ui.button a,
+.ui.segment a,
+.ui.header a {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+/* Fix Hover Effect for Links */
+.ui.segment a:hover,
+.ui.button a:hover,
+.ui.header a:hover,
+.ui.menu .ui.dropdown .menu>.item:hover 
+{
+  color: #ffdd57 !important; /* Yellow Hover */
+}
+
+/* === UI Statistics (Fix Number Colors) === */
+.ui.statistic .value {
+  color: #0056b3 !important;
+}
+
+.ui.statistic .label {
+  color: #003d80 !important;
+}
+
+/* === Responsive Fixes (Mobile Optimization) === */
+@media (max-width: 768px) {
+  /* Ensure the menu is responsive */
+  .ui.menu {
+    flex-direction: column;
+  }
+
+  /* Ensure pagination doesn’t overflow */
+  .ui.pagination.menu {
+    flex-wrap: wrap;
+  }
+}
+
+/* === Prevent Menu Title and  Search Bar from Being Hoverable === */
+.ui.menu .header,
+#searchBar{
+  pointer-events: none; /* Disable Hover & Click */
+  color: #ffffff !important; /* Keep White */
+  font-weight: bold;
+}
+
+/* Prevent Hover Effect on `.ui.header` */
+.ui.menu .header:hover {
+  background-color: transparent !important; /* No Background Change */
+  color: #ffffff !important; /* No Color Change */
+}

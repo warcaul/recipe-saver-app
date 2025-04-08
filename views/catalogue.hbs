@@ -1,0 +1,70 @@
+{{> menu id="catalogue"}} <!-- Include the navigation menu -->
+
+<!-- Main Section -->
+<section class="ui left aligned middle aligned segment">
+  
+  <!-- Page Title -->
+  <h2 class="ui center aligned header">Recipe Catalogue</h2>
+
+  <!-- Display Message If No Recipes Are Available -->
+  {{#unless recipes}}
+    <h3 class="ui message">Start adding your recipes</h3>
+  {{/unless}}
+
+  <!-- Loop Through Each Recipe and Display Its Details -->
+  {{#each recipes}}
+    <section class="ui left aligned middle aligned segment">
+      
+      <!-- Recipe Name -->
+      <h3 class="ui header">{{recipeName}}</h3>
+
+      <!-- Recipe Description -->
+      <p><i>{{recipeDescription}}</i></p>
+
+      <!-- Ingredients List -->
+      <strong>Ingredients:</strong>
+      <p class="ui text">
+        {{#each ingridients}}
+          {{this}}{{#unless @last}}, {{/unless}} <!-- Adds a comma unless it's the last item -->
+        {{/each}}
+      </p>
+
+      <!-- Allergy Information -->
+      <p><strong>Allergy Aware:</strong> {{alergyType}}</p>
+
+      <!-- Recipe Metadata Grid -->
+      <div class="ui grid">
+        <div class="two column row">
+
+          <!-- Vegetarian Label -->
+          <div class="column left aligned">
+            <p>
+              {{#if vegeterian}}
+                <span class="ui green label">Vegetarian</span>
+              {{else}}
+                <span class="ui red label">Not vegetarian</span>
+              {{/if}}
+            </p>
+          </div>
+
+          <!-- Button to View Recipe Details -->
+          <div class="column right aligned">
+            <a href="/recipe/{{id}}">
+              <button class="ui button">
+                <i class="play icon" style="visibility: visible;"></i> <!-- Play Icon -->
+              </button> 
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  {{/each}}
+
+  <!-- Include Pagination Partial -->
+  {{> pagination}}
+
+</section>
+
+{{> footer}} <!-- Include the footer -->
