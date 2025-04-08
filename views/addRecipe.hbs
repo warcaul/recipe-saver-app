@@ -1,0 +1,129 @@
+{{>menu}} <!-- Include the navigation menu -->
+
+<!-- Main Section -->
+<section class="ui left aligned middle aligned segment">
+  
+  <div class="ui container">
+    
+    <!-- Page Title -->
+    <h2 class="ui center aligned header">Add a New Recipe</h2>
+
+    <!-- Recipe Form -->
+    <form class="ui form">
+
+      <!-- Recipe Name Input -->
+      <div class="field">
+        <label>Recipe Name</label>
+        <input type="text" name="recipeName" placeholder="Enter Recipe Name">
+      </div>
+
+      <!-- Ingredients Section (Dynamic Input Fields) -->
+      <div class="field">
+        <label>Ingredients</label>
+        <div id="ingredients-container">
+          <div class="ui action input">
+            <input type="text" name="ingredients[]" placeholder="Add an ingredient">
+            <button type="button" class="ui icon button" onclick="addIngredient()">
+              <i class="plus icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recipe Description Input -->
+      <div class="field">
+        <label>Recipe Description</label>
+        <textarea name="recipeDescription" placeholder="Enter Recipe Description"></textarea>
+      </div>
+
+      <!-- Allergy Type Dropdown Selection -->
+      <div class="field">
+        <label>Allergy Type</label>
+        <select class="ui dropdown" name="alergyType">
+          <option value="">Select Allergy Type</option>
+          <option value="gluten">Gluten</option>
+          <option value="nuts">Nuts</option>
+          <option value="dairy">Dairy</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      
+      <!-- Recipe Cost -->
+      <!-- Currently Not Active -->
+      <!-- 
+        <div class="field">
+          <label>Recipe Cost ($)</label>
+          <input type="number" name="recipeCost" placeholder="Enter Cost">
+        </div> 
+      -->
+
+
+      <!-- Vegetarian Checkbox -->
+      <div class="field">
+        <div class="ui toggle checkbox vegetarian-toggle">
+          <input type="checkbox" name="vegetarian">
+          <label>Vegetarian</label>
+        </div>
+      </div>
+
+      <!-- Cooking Process Section (Dynamic Input Fields) -->
+      <div class="field">
+        <label>Cooking Steps</label>
+        <div id="steps-container">
+          <div class="ui action input">
+            <input type="text" name="cookingProcess[]" placeholder="Enter a cooking step">
+            <button type="button" class="ui icon button" onclick="addStep()">
+              <i class="plus icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centered Submit Button -->
+      <div class="ui center aligned container" style="margin-top: 20px;">
+        <button class="ui primary button" type="submit">Submit Recipe</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- JavaScript for Dynamic Fields -->
+  <script>
+    /**
+     * Adds a new ingredient input field dynamically.
+     */
+    function addIngredient() {
+      let container = document.getElementById('ingredients-container');
+      let newInput = document.createElement('div');
+      newInput.style.marginTop = "5px"; 
+      newInput.className = "ui action input";
+      newInput.innerHTML = `
+        <input type="text" name="ingredients[]" placeholder="Add another ingredient">
+        <button type="button" class="ui icon button" onclick="this.parentElement.remove()">
+          <i class="trash icon"></i>
+        </button>
+      `;
+      container.appendChild(newInput);
+    }
+
+    /**
+     * Adds a new cooking step input field dynamically.
+     */
+    function addStep() {
+      let container = document.getElementById('steps-container');
+      let newInput = document.createElement('div');
+      newInput.className = "ui action input";
+      newInput.style.marginTop = "5px";
+      newInput.innerHTML = `
+        <input type="text" name="cookingProcess[]" placeholder="Enter another step">
+        <button type="button" class="ui icon button" onclick="this.parentElement.remove()">
+          <i class="trash icon"></i>
+        </button>
+      `;
+      container.appendChild(newInput);
+    }
+  </script>
+
+</section>
+
+{{>footer}} <!-- Include the footer -->

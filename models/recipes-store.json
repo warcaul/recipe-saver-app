@@ -1,0 +1,276 @@
+{
+  "RecipesCollection": [
+    {
+      "id": "1",
+      "recipeName": "Spaghetti Carbonara",
+      "ingridients": [
+        "Spaghetti",
+        "Eggs",
+        "Parmesan Cheese",
+        "Pancetta",
+        "Black Pepper"
+      ],
+      "recipeDescription": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+      "recipeCost": 15,
+      "alergyType": "gluten",
+      "vegeterian": false,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Boil spaghetti in salted water until al dente."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Cook pancetta in a pan until crispy."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Mix eggs and parmesan cheese, then combine with spaghetti and pancetta."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "recipeName": "Vegetable Stir Fry",
+      "ingridients": [
+        "Bell Peppers",
+        "Broccoli",
+        "Carrots",
+        "Soy Sauce",
+        "Ginger"
+      ],
+      "recipeDescription": "A quick and healthy stir fry loaded with fresh vegetables and a savory sauce.",
+      "recipeCost": 12,
+      "alergyType": "soy",
+      "vegeterian": true,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Heat oil in a pan and sauté ginger until fragrant."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Add vegetables and stir-fry for a few minutes."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Pour soy sauce over vegetables, mix well, and serve hot."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "recipeName": "Beef Tacos",
+      "ingridients": [
+        "Ground Beef",
+        "Tortillas",
+        "Cheddar Cheese",
+        "Lettuce",
+        "Tomatoes"
+      ],
+      "recipeDescription": "Classic Mexican-style tacos with seasoned beef and fresh toppings.",
+      "recipeCost": 10,
+      "alergyType": "gluten",
+      "vegeterian": false,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Cook ground beef in a pan until browned."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Warm tortillas and prepare toppings."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Assemble tacos with beef, cheese, lettuce, and tomatoes."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "recipeName": "Margherita Pizza",
+      "ingridients": [
+        "Pizza Dough",
+        "Tomato Sauce",
+        "Mozzarella Cheese",
+        "Basil",
+        "Olive Oil"
+      ],
+      "recipeDescription": "A traditional Italian pizza with fresh mozzarella, basil, and tomato sauce.",
+      "recipeCost": 14,
+      "alergyType": "gluten",
+      "vegeterian": true,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Roll out pizza dough and spread tomato sauce on top."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Add mozzarella cheese and basil leaves."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Bake in a preheated oven at 220°C (430°F) for 12-15 minutes."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "recipeName": "Chicken Curry",
+      "ingridients": [
+        "Chicken",
+        "Coconut Milk",
+        "Curry Powder",
+        "Onions",
+        "Garlic"
+      ],
+      "recipeDescription": "A flavorful and aromatic curry dish with tender chicken in a rich sauce.",
+      "recipeCost": 16,
+      "alergyType": "none",
+      "vegeterian": false,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Sauté onions and garlic in a pan until soft."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Add chicken and cook until browned."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Pour in coconut milk and curry powder, then simmer until cooked."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "recipeName": "Caesar Salad",
+      "ingridients": [
+        "Romaine Lettuce",
+        "Caesar Dressing",
+        "Croutons",
+        "Parmesan Cheese",
+        "Chicken"
+      ],
+      "recipeDescription": "A refreshing salad with crunchy romaine, creamy dressing, and grilled chicken.",
+      "recipeCost": 9,
+      "alergyType": "gluten",
+      "vegeterian": false,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Chop romaine lettuce and place in a bowl."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Grill chicken breast and slice into strips."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Add croutons, parmesan, and Caesar dressing, then toss well."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "recipeName": "Lemon Garlic Salmon",
+      "ingridients": ["Salmon", "Lemon", "Garlic", "Butter", "Parsley"],
+      "recipeDescription": "A simple and delicious salmon dish with lemon and garlic butter sauce.",
+      "recipeCost": 20,
+      "alergyType": "fish",
+      "vegeterian": false,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Season salmon with salt, pepper, and garlic."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Pan-fry salmon in butter until golden brown."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Squeeze fresh lemon juice over the salmon and garnish with parsley."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "recipeName": "BBQ Pulled Jackfruit Sandwich",
+      "ingridients": ["Jackfruit", "BBQ Sauce", "Buns", "Coleslaw", "Pickles"],
+      "recipeDescription": "A vegetarian alternative to pulled pork, slow-cooked in BBQ sauce.",
+      "recipeCost": 17,
+      "alergyType": "gluten",
+      "vegeterian": true,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Shred jackfruit and cook in a pan with BBQ sauce."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Toast buns and prepare coleslaw."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Assemble sandwich with BBQ jackfruit, coleslaw, and pickles."
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "recipeName": "Stuffed Bell Peppers",
+      "ingridients": [
+        "Bell Peppers",
+        "Rice",
+        "Tomato Sauce",
+        "Black Beans",
+        "Corn"
+      ],
+      "recipeDescription": "Bell peppers stuffed with a hearty and flavorful rice and bean mixture.",
+      "recipeCost": 13,
+      "alergyType": "none",
+      "vegeterian": true,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Cook rice and mix with tomato sauce, beans, and corn."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Cut bell peppers in half and remove seeds."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Stuff peppers with rice mixture and bake at 180°C (350°F) for 20 minutes."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "recipeName": "Chocolate Chip Cookies",
+      "ingridients": ["Flour", "Sugar", "Chocolate Chips", "Butter", "Eggs"],
+      "recipeDescription": "Classic homemade cookies with a crispy edge and a chewy center.",
+      "recipeCost": 8,
+      "alergyType": "gluten",
+      "vegeterian": true,
+      "cookingProcess": [
+        {
+          "step": 1,
+          "stepDescription": "Mix flour, sugar, and butter in a bowl."
+        },
+        {
+          "step": 2,
+          "stepDescription": "Add eggs and chocolate chips, then mix well."
+        },
+        {
+          "step": 3,
+          "stepDescription": "Scoop onto a baking sheet and bake at 180°C (350°F) for 12 minutes."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "info": {
+    "appTitle": "Recipe saver",
+    "version": 1,
+    "creator": 
+      {
+        "name": "Roman Aleinykov",
+        "email": "example@example.com",
+        "phone": "+353 00 000 0000",
+        "location": "Waterford, Ireland"
+      }
+    ,
+    "appStatistics": {
+      "totalRecipes": 10,
+      "totalUsers": 1,
+      "activeUsers": 1,
+      "version": "1.0.0"
+    }
+  }
+}

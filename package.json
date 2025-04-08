@@ -1,0 +1,24 @@
+{
+  "name": "ca1-app",
+  "version": "1.0.0",
+  "description": "CA1 app",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "winston": "^3.17.0",
+    "lowdb": "^7.0.1",
+    "express-handlebars": "^8.0.1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
