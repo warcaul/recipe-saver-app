@@ -1,0 +1,91 @@
+<!-- Title -->
+<div class="field">
+  <label>Recipe Title</label>
+  <input type="text" name="title" placeholder="Enter Recipe Title" value="{{recipe.title}}" required>
+</div>
+
+<!-- Description -->
+<div class="field">
+  <label>Description</label>
+  <textarea name="description" placeholder="Describe the recipe..." required>{{recipe.description}}</textarea>
+</div>
+
+<!-- Allergy Checkboxes -->
+<div class="field">
+  <label>Allergy Information (check all that apply)</label>
+  <div class="ui segment" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+    {{#each allowedAllergies}}
+      <div class="ui checkbox">
+        <input type="checkbox" name="alergies" value="{{this}}" {{#if (includes ../recipe.alergies this)}}checked{{/if}}>
+        <label>{{capitalize this}}</label>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<!-- Vegetarian -->
+<div class="field">
+  <div class="ui toggle checkbox vegetarian-toggle">
+    <input type="checkbox" name="vegeterian" {{#if recipe.vegeterian}}checked{{/if}}>
+    <label>Vegetarian</label>
+  </div>
+</div>
+
+
+
+
+
+<!-- Recipe Photo Upload -->
+{{#if recipe.photo}}
+  <div class="ui center aligned container" style="margin-bottom: 1em;">
+    <img src="{{recipe.photo}}" class="ui medium rounded image" style="object-fit: cover;" alt="Recipe Image">
+  </div>
+{{/if}}
+
+<div class="field">
+  <label>Upload/Replace Recipe Photo</label>
+  <input type="file" name="photo" accept="image/*">
+</div>
+
+
+<!-- Cooking Steps -->
+<div class="field">
+  <label>Cooking Steps</label>
+  <div id="steps-container">
+    {{#if recipe.cookingSteps.length}}
+      {{#each recipe.cookingSteps}}
+        <div class="ui action input" style="margin-bottom: 5px;">
+          <input type="text" name="cookingSteps" value="{{this}}">
+          <button type="button" class="ui icon button" onclick="this.parentElement.remove()">
+            <i class="trash icon"></i>
+          </button>
+        </div>
+      {{/each}}
+    {{/if}}
+
+    <!-- Always keep one empty input + add button -->
+    <div class="ui action input" style="margin-bottom: 5px;">
+      <input type="text" name="cookingSteps" placeholder="Enter a cooking step">
+      <button type="button" class="ui icon button" onclick="addStep()">
+        <i class="plus icon"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for dynamic cooking step fields -->
+<script>
+  function addStep() {
+    const container = document.getElementById('steps-container');
+    const newInput = document.createElement('div');
+    newInput.className = "ui action input";
+    newInput.style.marginTop = "5px";
+    newInput.innerHTML = `
+      <input type="text" name="cookingSteps" placeholder="Enter another step">
+      <button type="button" class="ui icon button" onclick="this.parentElement.remove()">
+        <i class="trash icon"></i>
+      </button>
+    `;
+    container.appendChild(newInput);
+  }
+</script>

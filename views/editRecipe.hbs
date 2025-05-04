@@ -1,0 +1,10 @@
+{{> menu}} <!-- Include the navigation menu -->
+<section class="ui segment">
+  <form class="ui form" action="/myrecipes/{{recipe.id}}/update" method="POST" enctype="multipart/form-data">
+    {{> recipeForm recipe=recipe allowedAllergies=allowedAllergies}}
+    <div class="ui center aligned container" style="margin-top: 20px;">
+      <button class="ui blue button" type="submit">Update Recipe</button>
+      <a href="/myrecipes/delete/{{recipe.id}}" class="ui red button" onclick="return confirm('Delete this recipe?')">Delete</a>
+    </div>
+  </form>
+</section>

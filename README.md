@@ -1,35 +1,65 @@
 # Recipe Saver
 
-## Project Overview
-Recipe Saver is a web application that allows users to save and share their favorite recipes. It provides a simple interface to organize recipes, making it easy to add new recipes and browse or view details of existing ones. The project is built with **Node.js**, **Express**, **Handlebars**, and **LowDB**, which makes it a lightweight and user-friendly solution for managing a personal recipe collection.
+## Overview  
+**Recipe Saver** is a modern web application that enables users to create, organize, and share their favorite recipes. The app offers an intuitive user interface, personalized profiles, rating and liking system, image uploads, and powerful search capabilities. Built using **Node.js**, **Express**, **Handlebars**, and **LowDB**, it offers a lightweight yet full-featured recipe management experience.
 
-## Features
-- **Catalogue of Recipes** – View a list of all saved recipes with titles.
-- **Recipe Details** – Click on a recipe to view its full details, including ingredients and cooking instructions.
-- **Add New Recipes** – A form interface to input and save new recipes to the collection.
-- **About Page** – An informational page showing application statistics and details about the app.
+## ✨ Features
 
-## Technologies Used
-- **Node.js** – JavaScript runtime for backend.
-- **Express.js** – Web framework for handling routing and server logic.
-- **Express-Handlebars** – Template engine for dynamic HTML rendering.
-- **LowDB** – Lightweight JSON-based database for recipe storage.
-- **Winston** – Logger for debugging and tracking events.
-- **Fomantic-UI** – Frontend UI framework for styling.
+### 🌐 Core Functionality
+- 📖 **Catalogue View** – Paginated recipe catalogue with sorting (by date or rating).
+- 🔍 **Advanced Search** – Search by name, filter by allergies, vegetarian preference, and rating.
+- 📝 **Recipe Forms** – Add, edit, and delete recipes with cooking steps and allergy metadata.
+- ❤️ **Like System** – Users can like/unlike recipes; ratings are automatically calculated.
+- 📷 **Image Uploads** – Upload avatars and recipe photos via **Cloudinary** integration.
 
-## Project Structure
-- `controllers/` - Handles page rendering and logic.
-- `models/` - Handles data storage and retrieval.
-- `utils/` - Contains logger and helper functions.
-- `views/` - Handlebars templates for rendering pages.
-- `public/` - Static assets (CSS, images, etc.).
+### 👤 User Features
+- 👨‍🍳 **Profile Page** – Shows user statistics (number of recipes, average rating).
+- 🧾 **My Recipes** – View and manage all personal recipes.
+- 🔐 **Authentication** – Secure login and profile update options, including password changes.
+- 🗑️ **Account Deletion** – Users can delete their account and all associated data.
 
-## Future Enhancements
-Version 2 will include:
-- Ability to upload, edit, and remove recipes.
-- Search bar for quick recipe discovery.
-- Filters for better catalogue navigation.
+## 📦 Tech Stack
 
-## License
-This project is created for educational purposes as part of an assignment for **SETU Waterford**.
+- **Backend**:  
+  - Node.js  
+  - Express.js  
+  - LowDB (JSON-based NoSQL)  
+  - Cloudinary (image hosting)
 
+- **Frontend**:  
+  - Express-Handlebars  
+  - Fomantic UI  
+  - Vanilla JavaScript  
+
+- **Utilities**:  
+  - Winston logger  
+  - FileUpload middleware  
+  - Custom helpers (e.g., pagination, formatting)
+
+## 📁 Project Structure
+
+```
+.
+├── controllers/       # Route controllers (views & logic)
+├── models/            # Data store logic (LowDB, Cloudinary)
+├── views/             # Handlebars templates
+├── public/            # Static files (CSS, icons)
+├── utils/             # Logger, helpers
+├── .data/             # Environment variables (cloudinary)
+└── db.json            # JSON database
+```
+
+## 🚀 What's New in Version 2.0.0
+
+- ✅ Full image upload support for user avatars and recipe photos  
+- ✅ Improved mobile-responsive navigation and layout  
+- ✅ New like/thumbs-up rating system  
+- ✅ Full search + filtering logic by name, dietary tags, and rating  
+- ✅ Sort catalogue by date or popularity  
+- ✅ Display authors and interactive buttons per recipe  
+- ✅ Pagination for all major pages  
+- ✅ Refactored and modular controller structure  
+
+## 🏫 License
+
+This project was developed for educational purposes as part of an assignment at **SETU Waterford**.

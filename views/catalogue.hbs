@@ -1,70 +1,45 @@
-{{> menu id="catalogue"}} <!-- Include the navigation menu -->
+{{> menu}} <!-- Include the navigation menu -->
 
 <!-- Main Section -->
 <section class="ui left aligned middle aligned segment">
-  
+
   <!-- Page Title -->
   <h2 class="ui center aligned header">Recipe Catalogue</h2>
 
   <!-- Display Message If No Recipes Are Available -->
-  {{#unless recipes}}
-    <h3 class="ui message">Start adding your recipes</h3>
+  {{#unless recipes.length}}
+    <h3 class="ui message">No recipes yet. You can add them in My Recipes page.</h3>
   {{/unless}}
+  
+  <form class="ui form" method="GET" style="margin-bottom: 1rem;">
+  <div class="inline fields">
+    <label>Sort by:</label>
+    <div class="field">
+      <select name="sort" class="ui dropdown" onchange="this.form.submit()">
+        <option value="date" {{#ifeq sortBy "date"}}selected{{/ifeq}}>Newest First</option>
+        <option value="rating" {{#ifeq sortBy "rating"}}selected{{/ifeq}}>Top Rated</option>
+      </select>
+    </div>
+  </div>
+</form>
 
-  <!-- Loop Through Each Recipe and Display Its Details -->
+
+  <!-- Loop Through Recipes -->
   {{#each recipes}}
-    <section class="ui left aligned middle aligned segment">
-      
-      <!-- Recipe Name -->
-      <h3 class="ui header">{{recipeName}}</h3>
+    {{> shortRecipe}}
 
-      <!-- Recipe Description -->
-      <p><i>{{recipeDescription}}</i></p>
 
-      <!-- Ingredients List -->
-      <strong>Ingredients:</strong>
-      <p class="ui text">
-        {{#each ingridients}}
-          {{this}}{{#unless @last}}, {{/unless}} <!-- Adds a comma unless it's the last item -->
-        {{/each}}
-      </p>
 
-      <!-- Allergy Information -->
-      <p><strong>Allergy Aware:</strong> {{alergyType}}</p>
-
-      <!-- Recipe Metadata Grid -->
-      <div class="ui grid">
-        <div class="two column row">
-
-          <!-- Vegetarian Label -->
-          <div class="column left aligned">
-            <p>
-              {{#if vegeterian}}
-                <span class="ui green label">Vegetarian</span>
-              {{else}}
-                <span class="ui red label">Not vegetarian</span>
-              {{/if}}
-            </p>
-          </div>
-
-          <!-- Button to View Recipe Details -->
-          <div class="column right aligned">
-            <a href="/recipe/{{id}}">
-              <button class="ui button">
-                <i class="play icon" style="visibility: visible;"></i> <!-- Play Icon -->
-              </button> 
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
+    <div class="ui container" style="margin-bottom: 2rem;">
+      <a href="/recipe/{{id}}" class="ui fluid button">
+        <i class="play icon"></i> View Recipe
+      </a>
+    </div>
   {{/each}}
 
-  <!-- Include Pagination Partial -->
+  <!-- Pagination -->
   {{> pagination}}
 
 </section>
 
-{{> footer}} <!-- Include the footer -->
+{{> footer}}

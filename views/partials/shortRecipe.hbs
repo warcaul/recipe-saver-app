@@ -1,0 +1,36 @@
+<section class="ui left aligned middle aligned segment">
+
+  <!-- Recipe Name -->
+  <h3 class="ui header">{{title}}</h3>
+  
+  {{#if photo}}
+    <img src="{{photo}}" alt="Recipe Image" class="ui small image" style="margin-bottom: 1em;">
+  {{/if}}
+
+  <!-- Description -->
+  <p><i>{{description}}</i></p>
+
+  <!-- Allergies -->
+  {{#if alergies.length}}
+    <p><strong>Allergens:</strong> 
+      {{#each alergies}}
+        <span class="ui red label">{{this}}</span>
+      {{/each}}
+    </p>
+  {{/if}}
+
+  <!-- Vegetarian -->
+  <p><strong>Vegetarian:</strong> 
+    {{#if vegeterian}}<span class="ui green label">Yes</span>
+    {{else}}<span class="ui red label">No</span>{{/if}}
+  </p>
+
+  <!-- Step Count -->
+  {{#if cookingSteps.length}}
+    <p><strong>Amount of steps:</strong> {{cookingSteps.length}}</p>
+  {{/if}}
+  
+  
+  <p><i class="thumbs up icon"></i> {{rating}} likes</p>
+
+</section>

@@ -1,76 +1,87 @@
 {{> menu}} <!-- Include the navigation menu -->
 
 <section class="ui center aligned middle aligned segment">
-  
-  <!-- Check if the Recipe Exists -->
+
   {{#if singleRecipe}}
 
-    <!-- Recipe Name -->
-    <h2 class="ui header">{{singleRecipe.recipeName}}</h2>
+    <!-- Recipe Title -->
+    <h2 class="ui header">{{singleRecipe.title}}</h2>
 
-    <!-- Recipe Description and Ingredients -->
+    <!-- Main Details Container -->
     <div class="ui container">
       <div class="ui left aligned segment">
 
-        <!-- Recipe Description -->
-        <p><i>{{singleRecipe.recipeDescription}}</i></p>
+        <!-- Description -->
+        <p><i>{{singleRecipe.description}}</i></p>
 
-        <!-- Ingredients List -->
-        <strong>Ingredients:</strong>
-        <p class="ui text">
-          {{#each singleRecipe.ingridients}}
-            {{this}}{{#unless @last}}, {{/unless}} <!-- Adds a comma unless it's the last item -->
-          {{/each}}
+        <!-- Allergens -->
+        {{#if singleRecipe.alergies.length}}
+          <p><strong>Allergens:</strong>
+            {{#each singleRecipe.alergies}}
+              <span class="ui red label">{{this}}</span>
+            {{/each}}
+          </p>
+        {{/if}}
+
+        <!-- Vegetarian -->
+        <p><strong>Vegetarian:</strong>
+          {{#if singleRecipe.vegeterian}}
+            <span class="ui green label">Yes</span>
+          {{else}}
+            <span class="ui red label">No</span>
+          {{/if}}
         </p>
+
+        <!-- Step Count -->
+        <p><strong>Amount of steps:</strong> {{singleRecipe.cookingSteps.length}}</p>
 
       </div>
     </div>
 
-    <!-- Cooking Process Section -->
-    <div class="ui container">
-      <h3 class="ui header">Cooking Process</h3>
+    <!-- Cooking Steps -->
+    <div class="ui container" style="margin-top: 2rem;">
+      <h3 class="ui header">Cooking Steps</h3>
+
       <div class="ui relaxed divided list">
-        {{#each singleRecipe.cookingProcess}}
+        {{#each singleRecipe.cookingSteps}}
           <div class="ui grid">
             <div class="two column row">
-
-              <!-- Step Number (Circular Label) -->
               <div class="column" style="max-width: 50px;">
-                <div class="ui circular label">{{step}}</div>
+                <div class="ui circular label">{{@index}}</div>
               </div>
-
-              <!-- Step Description -->
               <div class="column left aligned">
-                <p>{{stepDescription}}</p>
+                <p>{{this}}</p>
               </div>
-
             </div>
           </div>
         {{/each}}
       </div>
     </div>
+  
+<form method="POST" action="/recipe/{{singleRecipe.id}}/like">
+  {{#if userHasLiked}}
+    <button class="ui red icon button">
+      <i class="thumbs down icon"></i> Unlike
+    </button>
+  {{else}}
+    <button class="ui green icon button">
+      <i class="thumbs up icon"></i> Like
+    </button>
+  {{/if}}
+</form>
+
 
   {{else}}
 
-    <!-- Message When Recipe Is Not Found -->
     <h3>There is no recipe with this ID</h3>
-
-    <!-- Suggest User to Search for Another Recipe -->
     <div class="ui grid">
       <div class="two column row">
-
-        <!-- Prompt Text -->
         <div class="column left aligned">
           <p>Would you like to search for another?</p>
         </div>
-
-        <!-- Button to Navigate to Catalogue -->
         <div class="column right aligned">
-          <a href="/catalogue" class="ui button">
-            Go to Catalogue
-          </a>
+          <a href="/catalogue" class="ui button">Go to Catalogue</a>
         </div>
-
       </div>
     </div>
 
@@ -78,4 +89,4 @@
 
 </section>
 
-{{> footer}} <!-- Include the footer -->
+{{> footer}}

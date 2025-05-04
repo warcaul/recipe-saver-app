@@ -1,0 +1,27 @@
+{{> menu}}
+
+<div class="ui container" style="margin-top: 2rem;">
+  <a href="/myrecipes/add" class="ui fluid button">
+    <i class="plus icon"></i> Add New Recipe
+  </a>
+</div>
+
+<section class="ui left aligned middle aligned segment">
+  <h2 class="ui center aligned header">My Recipes</h2>
+
+  {{#unless recipes.length}}
+    <div class="ui message">You haven't added any recipes yet.</div>
+  {{/unless}}
+
+  {{#each recipes}}
+    {{> shortRecipe}}
+  
+<div class="ui center aligned container" style="margin-bottom: 2rem;">
+  <a href="/myrecipes/edit/{{id}}" class="ui fluid button">Edit</a>
+</div>
+  {{/each}}
+
+  {{> pagination}}
+</section>
+
+{{> footer}}
