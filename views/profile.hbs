@@ -1,0 +1,110 @@
+{{> menu}}
+
+
+
+<section class="ui   segment">
+  <h1 class="ui header center aligned">My Profile</h1>
+
+  <div class="ui stacked segment">
+    <form class="ui form" id="profileForm" action="/profile/update" method="POST" enctype="multipart/form-data">
+
+      <div class="field">
+        <label>Username</label>
+        <input type="text" value="{{user.username}}" disabled>
+      </div>
+      
+      {{#if user.avatar}}
+        <div class="ui centered aligned container" style="margin-bottom: 2em;">
+          <img src="{{user.avatar}}" class="ui centered fluid image" style="max-width: 300px;" alt="User Avatar">
+        </div>
+      {{/if}}
+
+
+      <div class="field">
+        <label>Upload Avatar</label>
+        <input type="file" name="avatar" accept="image/*">
+      </div>
+
+
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" name="firstName" value="{{user.firstName}}">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" name="lastName" value="{{user.lastName}}">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" value="{{user.email}}">
+      </div>
+
+      <div class="field">
+        <label>New Password</label>
+        <input type="password" id="password" name="password" placeholder="Leave blank to keep current">
+        <div id="passwordError" style="color: red; display: none;">Password must be at least 8 characters.</div>
+      </div>
+      <div class="ui center aligned container">
+      <button class="ui primary button" type="submit">Update Profile</button>
+      </div>
+    </form>
+  </div>
+
+<div class="ui segment">
+  <h3 class="ui header">
+    <i class="chart bar icon"></i>
+    <div class="content">
+      Your Statistics
+    </div>
+  </h3>
+
+  <div class="ui list">
+    <div class="item">
+      <i class="book icon blue"></i>
+      <div class="content">
+        <strong>Number of Recipes:</strong> {{displayNumRecipes}}
+      </div>
+    </div>
+    <div class="item">
+      <i class="star icon yellow"></i>
+      <div class="content">
+        <strong>Average Rating:</strong> {{displayAVGRating}}
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<div class="ui container">
+  <div class="ui center aligned container">
+    <form action="/profile/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This cannot be undone.')">
+      <button class="ui red button" type="submit">Delete Profile</button>
+    </form>
+  </div>
+</div>
+
+  <br>
+  
+</section>
+
+
+
+
+<script>
+  document.getElementById("profileForm").addEventListener("submit", function (event) {
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("passwordError");
+
+    if (password.length > 0 && password.length < 8) {
+      event.preventDefault();
+      error.style.display = "block";
+    } else {
+      error.style.display = "none";
+    }
+  });
+</script>
+
+{{> footer}}

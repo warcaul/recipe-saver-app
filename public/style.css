@@ -209,3 +209,18 @@ body {
   background-color: transparent !important; /* No Background Change */
   color: #ffffff !important; /* No Color Change */
 }
+
+
+
+.ui.red.button {
+  background-color: #db2828 !important; 
+  color: #ffffff !important;
+}
+
+.ui.red.button:hover {
+  background-color: #b71c1c !important; 
+  color: #ffffff !important;
+}
+
+
+

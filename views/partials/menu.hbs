@@ -1,29 +1,29 @@
-<!--  Fluid Navigation Menu -->
-<div class="ui fluid menu">
-  
-  <!--  Left Dropdown Button (Menu Icon) -->
-  <div class="ui simple dropdown item">
-    <i class="bars icon"></i> <!-- ☰ Menu Icon -->
-    
-    <!--  Dropdown Menu Items -->
-    <div class="menu">
-      <a class="item" href="/">Home</a> <!--  Home Link -->
-      <a class="item" href="/catalogue">Catalogue</a> <!--  Catalogue Link -->
-      <a class="item" href="/addRecipe">Add Recipe</a> <!--  Add Recipe Link -->
-      <a class="item" href="/about">About</a> <!--  About Page Link -->
-    </div>
+
+<div style="background-color: #004080; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+
+  <div style="flex-grow: 1; text-align: center;">
+    <h2 style="color: white; margin: 0;">Recipe Saver</h2>
   </div>
 
-  <!--  Centered Title (Recipe Saver) -->
-  <div class="header item" style="flex-grow: 1; display: flex; justify-content: center; align-items: center;">
-    <span class="ui header">Recipe Saver</span> <!--  Website Title -->
+  <div style="flex-shrink: 0;">
+    {{#if user.avatar}}
+      <a href="/profile" class="ui circular image" style="height: 38px; width: 38px; overflow: hidden;">
+        <img src="{{user.avatar}}" style="object-fit: cover; height: 100%; width: 100%;" alt="Avatar">
+      </a>
+    {{else}}
+      <a href="/profile" class="ui circular icon button" style="background-color: #0059b3; color: white;">
+        <i class="user icon"></i>
+      </a>
+    {{/if}}
+
   </div>
-  
-  <!--  Right-Aligned Search Bar -->
-  <div class="right item" id="searchBar">
-    <div class="ui transparent input">
-      <input type="text" placeholder="Search..."> <!--  Search Input -->
-    </div>
-  </div>
+</div>
+
+<div class="ui four item inverted blue menu" style="margin: 0; border-radius: 0; width: 100%;">
+
+  <a class="item" href="/catalogue">Catalogue</a>
+  <a class="item" href="/myrecipes">My Recipes</a>
+  <a class="item" href="/search">Search</a>
+  <a class="item" href="/about">About</a>
 
 </div>

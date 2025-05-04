@@ -4,17 +4,17 @@
 
     <!-- Previous Page Button (Only Visible if Current Page is Greater than 1) -->
     {{#if (gt currentPage 1)}}
-      <a class="item" href="?page={{subtract currentPage 1}}">Previous</a>
+      <a class="item" href="?page={{subtract currentPage 1}}&sort={{sortBy}}">Previous</a>
     {{/if}}
 
     <!-- Page Number Links -->
     {{#each (range 1 totalPages)}}
-      <a class="item {{#ifeq this ../currentPage}}active{{/ifeq}}" href="?page={{this}}">{{this}}</a>
+      <a class="item {{#ifeq this ../currentPage}}active{{/ifeq}}" href="?page={{this}}&sort={{../sortBy}}">{{this}}</a>
     {{/each}}
 
     <!-- Next Page Button (Only Visible if Current Page is Less than Total Pages) -->
     {{#if (lt currentPage totalPages)}}
-      <a class="item" href="?page={{add currentPage 1}}">Next</a>
+      <a class="item" href="?page={{add currentPage 1}}&sort={{sortBy}}">Next</a>
     {{/if}}
 
   </div>

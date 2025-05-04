@@ -1,0 +1,88 @@
+{{> menu}}
+
+<section class="ui container" style="margin-top: 2rem;">
+  <h2 class="ui center aligned header">Search Recipes</h2>
+
+  <!-- Search Form -->
+  <form class="ui form" method="POST" action="/search">
+    <div class="fields">
+      <!-- Title -->
+      <div class="eight wide field">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Search by title" value="{{query.title}}">
+      </div>
+
+      <!-- Vegetarian -->
+      <div class="four wide field">
+        <label>Vegetarian</label>
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="vegeterian" {{#if query.vegeterian}}checked{{/if}}>
+          <label>Only Vegetarian</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Allergy Checkboxes -->
+    <div class="field">
+      <label>Exclude Allergens</label>
+      <div class="ui segment" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        {{#each allowedAllergies}}
+          <div class="ui checkbox">
+            <input type="checkbox" name="alergies" value="{{this}}" {{#if (includes ../query.alergies this)}}checked{{/if}}>
+            <label>{{capitalize this}}</label>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+<div class="ui buttons">
+  <button class="ui primary button" type="submit">Search</button>
+  <div class="or"></div>
+  <button type="button" class="ui button" onclick="resetSearchForm()">Reset</button>
+</div>
+
+  </form>
+
+  <!-- Results Section -->
+  {{#if recipes}}
+    <h3 class="ui dividing header" style="margin-top: 2rem;">Results</h3>
+
+    {{#if recipes.length}}
+      {{#each recipes}}
+        <section class="ui left aligned middle aligned segment">
+          {{> shortRecipe}}
+          <div class="ui buttons" style="margin-top: 10px;">
+            <a href="/recipe/{{id}}" class="ui button">View</a>
+          </div>
+        </section>
+      {{/each}}
+    {{else}}
+      <div class="ui warning message">
+        <div class="header">No recipes found.</div>
+        Try adjusting your filters or search term.
+      </div>
+    {{/if}}
+  {{/if}}
+</section>
+
+{{> footer}}
+
+
+<script>
+function resetSearchForm() {
+  const form = document.querySelector("form.ui.form");
+  form.reset();
+
+  // Manually clear title input
+  const titleInput = form.querySelector("input[name='title']");
+  if (titleInput) titleInput.value = "";
+
+  // Reset Semantic UI checkbox visuals
+  document.querySelectorAll(".ui.checkbox").forEach((el) => {
+    const input = el.querySelector("input[type='checkbox']");
+    input.checked = false;
+    el.classList.remove("checked");
+  });
+}
+
+</script>

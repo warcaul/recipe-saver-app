@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "firstName": "Roman",
+      "lastName": "YEs yes",
+      "email": "admin@gmail.com",
+      "username": "admin",
+      "password": "admin",
+      "id": "2373bffe-3db7-46b6-b1e3-fa6bdb0dcf04",
+      "avatar": "https://res.cloudinary.com/web-app-ral/image/upload/v1746379600/avatars/lftliughkkpdchptpsq8.jpg"
+    }
+  ]
+}
